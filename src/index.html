@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LoginForm</title>
+    <link rel="stylesheet" href="./css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/vendor/normalize.min.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/vendor/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container container_extend">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="h1_extend">Person Form</h1>
+                <hr/>
+            </div>
+        </div>
+        <form id="loginForm">
+
+            <div class="row">
+                <fieldset>
+                    <div class="col-xs-6 col-sm-5 col-md-2">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control input_extend" id="title" name="title" placeholder="Mr./Mrs.">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-5">
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="firstname" 
+                                placeholder="Your Fist Name"
+                                minlength="2"
+                                required
+                                aria-required="true"
+                            >
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-5">
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" id="lastname" placeholder="Your Last Name">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="gender" class="form-control">
+                                <option value="" disabled selected>&nbsp;</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <label for="birth">Date of Birth</label>
+                            <input type="text" class="form-control" id="birth" placeholder="dd/mm/yyyy">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <fieldset>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="street">Adress</label>
+                            <input type="text" class="form-control" id="street" placeholder="Street">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="city" placeholder="City">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="state" placeholder="State">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="postcode" placeholder="Post Code">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" id="country">
+                                <option class="options--color" value="country" disabled selected>Country</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+        </form>
+    </div>
+    <script defer src="./js/vendor/jquery.colorbox-min.js"></script>
+    <script defer src="./js/vendor/jquery.validate.js"></script>
+
+    <script defer src="//localhost:35729/livereload.js"></script>
+    <script defer src="./js/main.js"></script>
+</body>
+
+
+</html>
