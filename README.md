@@ -1,4 +1,4 @@
-# responsive
+# responsive form with validation
 
 run ```yarn``` or ```npm install```
 
