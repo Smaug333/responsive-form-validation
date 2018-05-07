@@ -1,59 +1,48 @@
-$(function() {
-  var rules = {
-    title: { req: "optional" },
-    firstname: {
-      req: "required",
-      msg: "first name requires at least two letters"
-    },
-    lastname: {
-      req: "required",
-      msg: "last name requires at least two letters"
-    },
-    gender: { req: "required", msg: "gender required" },
-    birth: { req: "optional" },
-    city: { req: "optional" },
-    state: { req: "optional" },
-    postcode: { req: "optional" },
-    country: { req: "optional" }
-  };
+var formValidation = {
+  init: function(options) {
 
-  var eleArr = Object.keys(rules);
-  var elements = [];
+    this.options = options;
 
-  for (var i = 0; i <= eleArr.length; i++) {
-    var el = $("#" + eleArr[i]);
+    var _self = this;
+    var eleArr = Object.keys(options);
+    var elements = [];
 
-    el.blur(function() {
-      var element = $(this);
-      checkField(element);
-    });
-  }
+    for (var i = 0; i <= eleArr.length; i++) {
+      var el = $("#" + eleArr[i]);
 
-  var checkField = function(element) {
-    var rule = rules[$(element).attr("id")];
+      el.blur(function() {
+        var element = $(this);
+        _self.checkField(element);
+      });
+    }
+  },
+
+  checkField: function(element) {
+    var rule = this.options[$(element).attr("id")];
 
     if ($(element).hasClass("alert-danger")) {
-      closeColorBox(element);
+      this.closeColorBox(element);
     }
 
-    removeError(element);
+    this.removeError(element);
 
-    var truthyEl = $(element).val() === null ? true : $(element).val().length <= 1;
+    var truthyEl =
+      $(element).val() === null ? true : $(element).val().length <= 1;
 
     if (truthyEl && rule.req === "required") {
-      addError(element, rule.msg);
+      this.addError(element, rule.msg);
     } else {
-      removeError(element);
+      this.removeError(element);
     }
-  };
+  },
 
-  function addError(element, msg) {
+  addError: function(element, msg) {
     var alertElement =
       '<div class="modal-header">' +
       "<strong class='text-center  center-block alert-danger alert_extend'>There is an error in your Form</strong>" +
       "</div>" +
       '<div class="modal-body">' +
-      '<span>' +
+      "<span>" +
       msg +
       "</span>" +
       "</div>";
@@ -68,21 +57,22 @@ $(function() {
         html: alertElement,
         className: "modal-content",
         top: 30,
-        closeButton: false,
+        closeButton: true,
         returnFocus: true
       });
     }
-  }
+  },
 
-  function removeError(element) {
+  removeError: function(element) {
     $(element).removeClass("alert-danger");
-  }
+  },
 
-  function closeColorBox(element) {
-    $(document).bind("cbox_closed", function(elenent) {
+  
+  closeColorBox: function(element) {
+    $(document).bind("cbox_closed.myInput", function(elenent) {
       $(element).focus();
-      $(document).unbind("cbox_closed");
+      $(document).unbind("cbox_closed.myInput");
     });
     $.colorbox.close();
   }
-});
+};

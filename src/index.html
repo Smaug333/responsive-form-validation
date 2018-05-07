@@ -27,27 +27,20 @@
                     <div class="col-xs-6 col-sm-5 col-md-2">
                         <div class="form-group">
                             <label for="title">Title</label>
-                            <input type="text" class="form-control input_extend" id="title" name="title" placeholder="Mr./Mrs.">
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Mr./Mrs.">
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-5">
                         <div class="form-group">
-                            <label for="firstname">First Name</label>
-                            <input 
-                                type="text" 
-                                class="form-control" 
-                                id="firstname" 
-                                placeholder="Your Fist Name"
-                                minlength="2"
-                                required
-                                aria-required="true"
-                            >
+                            <label for="firstname">First Name*</label>
+                            <input type="text" class="form-control  input_extend" id="firstname" placeholder="Your Fist Name" minlength="2" required
+                                aria-required="true">
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-5">
                         <div class="form-group">
-                            <label for="lastname">Last Name</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Your Last Name">
+                            <label for="lastname">Last Name*</label>
+                            <input type="text" class="form-control  input_extend" id="lastname" placeholder="Your Last Name">
                         </div>
                     </div>
                 </fieldset>
@@ -57,8 +50,8 @@
                 <fieldset>
                     <div class="col-xs-12 col-md-6">
                         <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <select name="gender" id="gender" class="form-control">
+                            <label for="gender">Gender*</label>
+                            <select name="gender" id="gender" class="form-control  input_extend">
                                 <option value="" disabled selected>&nbsp;</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -113,12 +106,24 @@
 
         </form>
     </div>
-    <script defer src="./js/vendor/jquery.colorbox-min.js"></script>
-    <script defer src="./js/vendor/jquery.validate.js"></script>
-
-    <script defer src="//localhost:35729/livereload.js"></script>
-    <script defer src="./js/main.js"></script>
+    <script src="./js/vendor/jquery.colorbox-min.js"></script>
+    <script src="//localhost:35729/livereload.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        $(document).ready(
+            formValidation.init({
+                firstname: {
+                    req: "required",
+                    msg: "first name requires at least two letters"
+                },
+                lastname: {
+                    req: "required",
+                    msg: "last name requires at least two letters"
+                },
+                gender: { req: "required", msg: "gender required" },
+            })
+        );
+    </script>
 </body>
-
 
 </html>
