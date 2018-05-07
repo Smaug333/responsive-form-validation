@@ -51,7 +51,7 @@ error: function(xhr, status, error) {
 ```
 
 3.2
-In my opion ajax requests are always the right choice, because the user experience is better handled with it (show spinner, end spinner, show success or error). No Page refresh.
+In my opinion ajax requests are always the right choice, because the user experience is better handled with it (show spinner, end spinner, show success or error). No Page refresh.
 
 3.3
 Http Codes show if a request was successful or not. If not they tell what exactly went wrong, the ui can react accordingly (bad request, not found, timedout). From Developers view maybe 4xx error codes are most important telling the user that and how their request went wrong.
