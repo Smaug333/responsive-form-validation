@@ -110,8 +110,9 @@
     <script src="//localhost:35729/livereload.js"></script>
     <script src="./js/main.js"></script>
     <script>
-        $(document).ready(
-            formValidation.init({
+
+        $(function(){
+            var formVal = new formValidation({
                 firstname: {
                     req: "required",
                     msg: "first name requires at least two letters"
@@ -120,9 +121,11 @@
                     req: "required",
                     msg: "last name requires at least two letters"
                 },
-                gender: { req: "required", msg: "gender required" },
-            })
-        );
+                gender: { req: "required", msg: "gender required" }
+            });
+        })
+
+
     </script>
 </body>
 
