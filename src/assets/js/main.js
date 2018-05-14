@@ -13,7 +13,7 @@ var formValidation = function( options ) {
     }
   };
 
-  formValidation.prototype.checkField = function( element ) {
+  formValidation.prototype.core = function( element ) {
     var rule = this.options[ $( element ).attr( "id" ) ];
 
     if ( $( element ).hasClass( "alert-danger" ) ) {
