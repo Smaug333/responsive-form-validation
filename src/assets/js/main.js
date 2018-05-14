@@ -22,10 +22,10 @@ var formValidation = function( options ) {
 
     this.removeError( element );
 
-    var truthyEl =
+    var boolEl =
       $( element ).val() === null ? true : $( element ).val().length <= 1;
 
-    if ( truthyEl && rule.req === "required" ) {
+    if ( boolEl && rule.required ) {
       this.addError( element, rule.msg );
     } else {
       this.removeError( element );
@@ -67,6 +67,7 @@ var formValidation = function( options ) {
 
   formValidation.prototype.closeColorBox = function( element ) {
     $( document ).bind( "cbox_closed.myInput", function() {
+        console.log( "bind", element );
       $( element ).focus();
       $( document ).unbind( "cbox_closed.myInput" );
     } );
