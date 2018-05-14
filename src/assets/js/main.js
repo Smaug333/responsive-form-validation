@@ -67,7 +67,6 @@ var formValidation = function( options ) {
 
   formValidation.prototype.closeColorBox = function( element ) {
     $( document ).bind( "cbox_closed.myInput", function() {
-        console.log( "bind", element );
       $( element ).focus();
       $( document ).unbind( "cbox_closed.myInput" );
     } );
